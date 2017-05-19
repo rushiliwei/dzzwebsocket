@@ -55,6 +55,7 @@ class Webskt < ActiveRecord::Base
       end
 
       $ws.on :close do |event|
+        p "cCCCCCCCCCCCCCCCCCCc"
         p [:close, event.code, event.reason]
         $ws = nil
       end
@@ -89,6 +90,7 @@ class Webskt < ActiveRecord::Base
         return event.data
       end
       ws.on :close do |event|
+        p "cCCCCCCCCCCCCCCCCCCc"
         p [:close, event.code, event.reason]
         ws = nil
       end
