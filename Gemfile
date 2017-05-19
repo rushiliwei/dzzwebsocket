@@ -51,3 +51,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem "em-http-request"
 gem "faye-websocket"
 gem "websocket-client-simple"
+gem "settingslogic"
