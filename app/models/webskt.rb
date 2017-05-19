@@ -7,7 +7,7 @@ class Webskt < ActiveRecord::Base
   #data = 'The quick brown fox jumps over the lazy dog'
   #digest1 = OpenSSL::Digest.new('sha1')
   #digest2 = OpenSSL::Digest.new('md5')
-  #hmac = OpenSSL::HMAC.digest(digest2, key, data)
+  #hmac = OpenSSL::HMAC.hexdigest(digest2, key, data)
   ##################################################
 
   # open_ticker = '{"event":"addChannel","channel":"btc_cny_ticker"}'
