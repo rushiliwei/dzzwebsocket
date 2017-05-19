@@ -45,9 +45,11 @@ class Webskt < ActiveRecord::Base
         #   p "MMMMMMMMMMMMMMMMMMMMMMMMM"
         #   # $ws.send('{"event":"removeChannel","channel":"btc_cny_ticker"}')
         # end
-        p "EEEEEEEEEEEEEEEEEe"
+        p "eEEEEEEEEEEEEEEEEEEe"
         p [:message, event.data]
         $ws.close
+        # $ws = nil
+        p "dDDDDDDDDDDDDDDDDDDd"
       end
 
       $ws.on :close do |event|
