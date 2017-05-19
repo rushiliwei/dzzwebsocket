@@ -50,6 +50,7 @@ class Webskt < ActiveRecord::Base
         $ws.close
         # $ws = nil
         p "dDDDDDDDDDDDDDDDDDDd"
+        return event.data
       end
 
       $ws.on :close do |event|
