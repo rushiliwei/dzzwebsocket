@@ -60,4 +60,38 @@ class Webskt < ActiveRecord::Base
       end
     }
   end
+
+
+  # get_accounts = {:id=>1, :method=>"call", :params=>[0, "get_accounts", [["1.2.0"]]]}
+  # event_channel = get_accounts.to_json
+  def self.test_wsk_bts(event_channel=nil)
+    
+    return if event_channel.blank?
+    
+    EM.run {
+      # wss://bitshares.dacplay.org:8089/ws（推荐，速度很快）
+      # wss://dele-puppy.com/ws
+      # wss://bitshares.openledger.info/ws
+      ws = Faye::WebSocket::Client.new("wss://bitshares.dacplay.org:8089/ws")
+
+      ws.on :open do |event|
+        p [:open]
+        ws.send(event_channel)
+        # ws.send('Hello, world!')
+        # ws.send('{"event":"addChannel","channel":"btc_cny_ticker"}')
+      end
+      ws.on :message do |event|        
+        p "eEEEEEEEEEEEEEEEEEEe"
+        p [:message, event.data]
+        ws.close
+        # ws = nil
+        p "dDDDDDDDDDDDDDDDDDDd"
+        return event.data
+      end
+      ws.on :close do |event|
+        p [:close, event.code, event.reason]
+        ws = nil
+      end
+    }
+  end
 end
